@@ -13,6 +13,12 @@
         /* Basic styling */
         
         * {
+            -webkit-user-drag: none;
+            /* For Safari */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -303,6 +309,18 @@
             }
         }
     </style>
+
+    <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // This will disable the right-click menu
+        });
+
+        // Disable long press on mobile
+        document.addEventListener('touchstart', function(event) {
+            event.preventDefault(); // This will disable long press
+        });
+    </script>
 
 </head>
 
