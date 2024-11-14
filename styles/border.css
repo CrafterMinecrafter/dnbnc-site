@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    position: absolute;
+    inset: 80px 0 0 0;
+    margin: auto;
+    text-align: center;
+    color: #ecedec;
+    font-size: 2rem;
+}
+
+.btn-wrapper {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    background: linear-gradient(to bottom, hsl(231, 35%, 18%), hsl(231, 39%, 14%));
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 120px;
+    transition: transform 200ms ease-in-out;
+    &:hover {
+        transform: translatey(-5px);
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        width: 400%;
+        height: 400%;
+        top: -150%;
+        left: -150%;
+        background: conic-gradient( hsla(236, 100%, 50%, 0.432) 0deg, hsla(234, 100%, 49%, 0.541) 0deg, transparent 40deg);
+        animation: border-spin 7s linear infinite;
+    }
+    .btn-text {
+        position: absolute;
+        inset: 3px;
+        display: grid;
+        place-content: center;
+        background: linear-gradient( to bottom, hsl(231, 35%, 14%), hsl(231, 39%, 10%));
+        border-radius: 10px;
+        font-size: 1.125rem;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+    &:hover::before {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes border-spin {
+    to {
+        transform: rotate(-1turn);
+    }
+}
