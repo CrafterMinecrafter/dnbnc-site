@@ -12,20 +12,34 @@
     <style>
         /* Basic styling */
         
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        
+        body {
             font-family: 'Press Start 2P', cursive;
-            text-align: center;
             display: flex;
             flex-direction: column;
+            /* Выравнивание контента по вертикали */
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            text-align: center;
             background: url('./Images/bg.jpg') no-repeat center center fixed;
             background-size: cover;
-            position: relative;
-            z-index: 1;
+            overflow-x: hidden;
+            /* Предотвращает горизонтальную прокрутку */
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 90%;
+            /* Уменьшение ширины для мобильных устройств */
+            padding: 10px;
+            /* Отступы, чтобы контент не прилипал к краям */
+            text-align: center;
         }
         
         body::before {
@@ -38,6 +52,14 @@
             background: rgba(0, 0, 0, 0.938);
             pointer-events: none;
             z-index: 0;
+        }
+        /* Медиазапрос для больших экранов */
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+                /* Ширина для больших экранов */
+            }
         }
         /* Header and text styling */
         
