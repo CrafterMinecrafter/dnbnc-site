@@ -1,5 +1,8 @@
 {
     "audioFiles": [
+        "./audio/track1.mp3",
         "./audio/track1.mp3"
-    ]
+
+    ],
+
 }

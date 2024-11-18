@@ -13,7 +13,7 @@ async function loadConfig() {
                 name: `Track ${index + 1}`,
                 artist: 'Unknown Artist',
                 url: file,
-                cover: 'cover.jpg', // Укажите обложку или замените на пустую строку
+                cover: '', // Укажите обложку или замените на пустую строку
             })),
         });
     } catch (error) {
