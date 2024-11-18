@@ -1,7 +1,15 @@
 {
-    "audioFiles": [
-        "./audio/track1.mp3",
-        "./audio/track1.mp3"
+    "audioFiles": [{
+            "name": "Track 1",
+            "artist": "Artist 1",
+            "url": "./audio/track1.mp3",
+            "cover": ""
+        },
+        {
+            "name": "Track 2",
+            "artist": "Artist 2",
+            "url": "./audio/track1.mp3",
+            "cover": ""
+        }
     ]
-
 }

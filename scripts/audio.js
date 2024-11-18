@@ -9,11 +9,11 @@ async function loadConfig() {
             autoplay: false,
             loop: 'all',
             order: 'list',
-            audio: config.audioFiles.map((file, index) => ({
-                name: `Track ${index + 1}`,
-                artist: 'Unknown Artist',
-                url: file,
-                cover: '', // Укажите обложку или замените на пустую строку
+            audio: config.audioFiles.map((file) => ({
+                name: file.name, // Имя трека
+                artist: file.artist, // Автор трека
+                url: file.url, // Путь к MP3 файлу
+                cover: file.cover, // Путь к обложке
             })),
         });
     } catch (error) {
