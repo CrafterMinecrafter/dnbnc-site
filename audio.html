@@ -4,19 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple MP3 Player</title>
+    <title>jPlayer MP3 Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/skin/blue.monday/jplayer.blue.monday.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="player-container">
-        <h1>MP3 Player</h1>
-        <audio id="audio-player" controls>
-      <source id="audio-source" src="" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-        <ul id="playlist"></ul>
+        <h1>jPlayer MP3 Player</h1>
+        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+        <div id="jp_container_1" class="jp-audio">
+            <div class="jp-type-playlist">
+                <div class="jp-gui jp-interface">
+                    <div class="jp-controls">
+                        <button class="jp-play">Play</button>
+                        <button class="jp-pause">Pause</button>
+                        <button class="jp-stop">Stop</button>
+                    </div>
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar">
+                            <div class="jp-play-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="jp-playlist">
+                    <ul>
+                        <!-- Плейлист автоматически заполняется -->
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js"></script>
     <script src="./scripts/audio.js"></script>
 </body>
 

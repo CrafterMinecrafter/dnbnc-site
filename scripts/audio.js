@@ -2,28 +2,33 @@ async function loadConfig() {
     try {
         const response = await fetch('/config.json');
         const config = await response.json();
-        const playlist = document.getElementById('playlist');
-        const audioPlayer = document.getElementById('audio-player');
-        const audioSource = document.getElementById('audio-source');
 
-        config.audioFiles.forEach((file, index) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Track ${index + 1}`;
-            listItem.classList.add('track');
-            listItem.dataset.src = file;
-            listItem.addEventListener('click', () => {
-                audioSource.src = file;
-                audioPlayer.load();
-                audioPlayer.play();
-            });
-            playlist.appendChild(listItem);
+        const playlist = config.audioFiles.map((file, index) => ({
+            title: `Track ${index + 1}`,
+            mp3: file,
+        }));
+
+        // Инициализация jPlayer
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function() {
+                $(this).jPlayer("setMedia", playlist[0]); // Загружаем первую песню
+            },
+            swfPath: "/js", // Путь к SWF-файлам, если используется Flash
+            supplied: "mp3",
+            wmode: "window",
         });
 
-        // Load the first track by default
-        if (config.audioFiles.length > 0) {
-            audioSource.src = config.audioFiles[0];
-            audioPlayer.load();
-        }
+        // Плейлист
+        new jPlayerPlaylist({
+            jPlayer: "#jquery_jplayer_1",
+            cssSelectorAncestor: "#jp_container_1",
+        }, playlist, {
+            supplied: "mp3",
+            smoothPlayBar: true,
+            keyEnabled: true,
+            audioFullScreen: false, // Для мобильных устройств
+        });
+
     } catch (error) {
         console.error('Error loading config:', error);
     }
