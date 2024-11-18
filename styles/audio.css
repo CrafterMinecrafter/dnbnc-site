@@ -6,51 +6,118 @@ body {
     font-family: 'Press Start 2P', cursive;
     display: flex;
     flex-direction: column;
-    /* Выравнивание контента по вертикали */
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh);
-    min-width: calc(350px);
+    min-height: 100vh;
+    min-width: 350px;
     text-align: center;
     background: url('./Images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow-x: hidden;
-    /* Предотвращает горизонтальную прокрутку */
+    color: #fff;
+    /* Adjust text color to be visible on dark background */
 }
 
-#player-container {
-    max-width: 500px;
-    margin: auto;
-    text-align: center;
+#aplayer {
+    max-width: 100%;
+    width: 500px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Slightly transparent black for player background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #fff;
+    /* White text for better contrast */
 }
 
-audio {
+.aplayer {
     width: 100%;
-    margin: 20px 0;
+    height: auto;
+    border-radius: 8px;
 }
+
+
+/* Add custom styling for APlayer controls */
+
+.aplayer-icon {
+    color: #fff;
+}
+
+.aplayer-play-pause {
+    background-color: #333;
+    /* Dark background for play/pause button */
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.aplayer-play-pause:hover {
+    background-color: #555;
+    /* Lighter shade on hover */
+}
+
+.aplayer-progress {
+    background-color: #555;
+    border-radius: 4px;
+    height: 5px;
+}
+
+.aplayer-progress .aplayer-progress-bar {
+    background-color: #ff5733;
+    /* Bright color for progress bar */
+}
+
+.aplayer-volume {
+    color: #fff;
+}
+
+
+/* Custom playlist styles */
 
 #playlist {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 #playlist .track {
     cursor: pointer;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-bottom: 5px;
+    padding: 12px;
+    border: 1px solid #444;
+    margin-bottom: 8px;
     border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
     transition: background-color 0.3s;
 }
 
 #playlist .track:hover {
-    background-color: #efefef;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Slightly lighter on hover */
+}
+
+#playlist .track.active {
+    background-color: rgba(255, 87, 51, 0.2);
+    /* Highlight active track */
+}
+
+
+/* Optional: Style download button */
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5733;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.download-btn:hover {
+    background-color: #c74e24;
 }
