@@ -15,7 +15,7 @@ body {
     background-size: cover;
     overflow-x: hidden;
     color: #fff;
-    /* Adjust text color to be visible on dark background */
+    /* White text for better visibility */
 }
 
 #aplayer {
@@ -23,8 +23,8 @@ body {
     width: 500px;
     padding: 20px;
     border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Slightly transparent black for player background */
+    background-color: rgba(128, 0, 128, 0.7);
+    /* Semi-transparent violet background */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -49,27 +49,27 @@ h1 {
 }
 
 .aplayer-play-pause {
-    background-color: #333;
-    /* Dark background for play/pause button */
+    background-color: #6a1b9a;
+    /* Violet background for play/pause button */
     color: #fff;
     border-radius: 50%;
     padding: 10px;
 }
 
 .aplayer-play-pause:hover {
-    background-color: #555;
-    /* Lighter shade on hover */
+    background-color: #9c4dcc;
+    /* Lighter violet on hover */
 }
 
 .aplayer-progress {
-    background-color: #555;
+    background-color: #9c4dcc;
     border-radius: 4px;
     height: 5px;
 }
 
 .aplayer-progress .aplayer-progress-bar {
-    background-color: #ff5733;
-    /* Bright color for progress bar */
+    background-color: #f3e5f5;
+    /* Light violet progress bar */
 }
 
 .aplayer-volume {
@@ -88,7 +88,7 @@ h1 {
 #playlist .track {
     cursor: pointer;
     padding: 12px;
-    border: 1px solid #444;
+    border: 1px solid #5e2b8c;
     margin-bottom: 8px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -101,8 +101,8 @@ h1 {
 }
 
 #playlist .track.active {
-    background-color: rgba(255, 87, 51, 0.2);
-    /* Highlight active track */
+    background-color: rgba(156, 77, 204, 0.2);
+    /* Highlight active track with a violet shade */
 }
 
 
@@ -111,7 +111,7 @@ h1 {
 .download-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff5733;
+    background-color: #9c4dcc;
     color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -119,5 +119,5 @@ h1 {
 }
 
 .download-btn:hover {
-    background-color: #c74e24;
+    background-color: #6a1b9a;
 }
