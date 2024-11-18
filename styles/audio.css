@@ -3,7 +3,7 @@
     width: 500px;
     padding: 20px;
     border-radius: 12px;
-    background-color: rgba(128, 0, 128, 0.7);
+    background-color: rgb(39 0 39 / 70%);
     /* Semi-transparent violet background */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -94,13 +94,35 @@ h1 {
     /* Adjust the font size as needed */
 }
 
+.aplayer .aplayer-info .aplayer-music .aplayer-author {
+    font-weight: bold;
+    /* Makes the text bold */
+    color: rgba(241, 30, 30, 0.8);
+    /* Light white color */
+    font-size: 1.2em;
+    /* Adjust the font size as needed */
+}
+
 .aplayer .aplayer-list ol li .aplayer-list-author {
     font-weight: bold;
     /* Makes the text bold */
     color: rgba(241, 30, 30, 0.8);
     /* Light white color */
-    font-size: 1.5em;
+    font-size: 1.2em;
     /* Adjust the font size as needed */
+}
+
+.aplayer .aplayer-list ol li {
+    font-weight: bold;
+    /* Makes the text bold */
+    color: rgba(157, 30, 241, 0.8);
+    /* Light white color */
+    font-size: 1.2em;
+    /* Adjust the font size as needed */
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-time {
+    color: #8532dd;
 }
 
 
