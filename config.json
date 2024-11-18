@@ -18,9 +18,21 @@
             "cover": ""
         },
         {
-            "name": "Fun",
-            "artist": "",
+            "name": "Toxic",
+            "artist": "DNBNC",
             "url": "./audio/4Toxic.mp3",
+            "cover": ""
+        },
+        {
+            "name": "IDK",
+            "artist": "DNBNC",
+            "url": "./audio/5IDK.mp3",
+            "cover": ""
+        },
+        {
+            "name": "Forgot",
+            "artist": "DNBNC",
+            "url": "./audio/6Forgot.mp3",
             "cover": ""
         }
     ]
