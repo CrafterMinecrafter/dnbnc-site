@@ -1,14 +1,26 @@
 {
     "audioFiles": [{
-            "name": "Track 1",
-            "artist": "Artist 1",
-            "url": "./audio/track1.mp3",
+            "name": "DESTROY DESTROY DESTROY!!",
+            "artist": "DNBNC",
+            "url": "./audio/1Destroy.mp3",
             "cover": ""
         },
         {
-            "name": "Track 2",
-            "artist": "Artist 2",
-            "url": "./audio/track1.mp3",
+            "name": "something like lolicore(remix)",
+            "artist": "DNBNC(original BY ABM)",
+            "url": "./audio/2opezdolbea2_RMX.mp3",
+            "cover": ""
+        },
+        {
+            "name": "Fun",
+            "artist": "DNBNC",
+            "url": "./audio/3Fun.mp3",
+            "cover": ""
+        },
+        {
+            "name": "Fun",
+            "artist": "",
+            "url": "./audio/4Toxic.mp3",
             "cover": ""
         }
     ]
