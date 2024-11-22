@@ -43,11 +43,29 @@
         player {
             text-align: left;
         }
+        
+        #backButton {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 5px;
+        }
+        
+        #backButton:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
     </style>
-
 </head>
 
 <body>
+    <button id="backButton" onclick="window.history.back()">Back</button>
     <player>
         <div id="aplayer"></div>
 
