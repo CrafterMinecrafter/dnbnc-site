@@ -1,6 +1,6 @@
 async function loadConfig() {
     try {
-        const response = await fetch('/config.json');
+        const response = await fetch('https://dnbnc.fun/config.json');
         const config = await response.json();
 
         // Создаем APlayer
