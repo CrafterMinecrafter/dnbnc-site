@@ -1,0 +1,142 @@
+#aplayer {
+    max-width: 100%;
+    width: 500px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgb(39 0 39 / 70%);
+    /* Semi-transparent violet background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #fff;
+    /* White text for better contrast */
+}
+
+.aplayer {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* Add custom styling for APlayer controls */
+
+.aplayer-icon {
+    color: #fff;
+}
+
+.aplayer-play-pause {
+    background-color: #6a1b9a;
+    /* Violet background for play/pause button */
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.aplayer-play-pause:hover {
+    background-color: #9c4dcc;
+    /* Lighter violet on hover  */
+}
+
+.aplayer-progress {
+    background-color: #9c4dcc;
+    border-radius: 4px;
+    height: 5px;
+}
+
+.aplayer-progress .aplayer-progress-bar {
+    background-color: #f3e5f5;
+}
+
+.aplayer-volume {
+    color: #fff;
+}
+
+
+/* Custom playlist styles */
+
+#playlist {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#playlist .track {
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid #5e2b8c;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+#playlist .track:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Slightly lighter on hover */
+}
+
+#playlist .track.active {
+    background-color: rgba(156, 77, 204, 0.2);
+    /* Highlight active track with a violet shade */
+}
+
+.aplayer-author {
+    font-weight: bold;
+    /* Makes the text bold */
+    color: rgba(255, 255, 255, 0.8);
+    /* Light white color */
+    font-size: 1em;
+    /* Adjust the font size as needed */
+}
+
+.aplayer .aplayer-info .aplayer-music .aplayer-author {
+    font-weight: bold;
+    /* Makes the text bold */
+    color: rgba(241, 30, 30, 0.8);
+    /* Light white color */
+    font-size: 1.1em;
+    /* Adjust the font size as needed */
+}
+
+.aplayer .aplayer-list ol li .aplayer-list-author {
+    font-weight: bold;
+    /* Makes the text bold */
+    color: rgba(241, 30, 30, 0.8);
+    /* Light white color */
+    font-size: 1.1em;
+    /* Adjust the font size as needed */
+}
+
+.aplayer .aplayer-list ol li {
+    font-weight: bold;
+    /* Makes the text bold */
+    color: rgba(157, 30, 241, 0.8);
+    /* Light white color */
+    font-size: 0.86em;
+    /* Adjust the font size as needed */
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-time {
+    color: #8532dd;
+}
+
+
+/* Optional: Style download button */
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #9c4dcc;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.download-btn:hover {
+    background-color: #6a1b9a;
+}
