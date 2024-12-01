@@ -4,7 +4,7 @@
 /* Для экранов шириной менее 768px */
 
 #aplayer {
-    max-width: 100%;
+    font-family: "Skranji", system-ui;    max-width: 100%;
     width: 500px;
     padding: 30px;
     border-radius: 12px;
