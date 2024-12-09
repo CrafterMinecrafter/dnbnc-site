@@ -40,6 +40,12 @@
             "artist": "DNBNC & Ivan Spoda",
             "url": "./audio/7Aishite.mp3",
             "cover": "./audio/7Aishite.png"
+        },
+        {
+            "name": "Witch BreakcoreRMX",
+            "artist": "DNBNC & DXVL",
+            "url": "./audio/8rmxWitchXD.mp3",
+            "cover": ""
         }
     ]
 }
