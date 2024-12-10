@@ -31,18 +31,24 @@ function populateChordSelect() {
 currentChords = [];
 
 function updateChordButtons() {
+
     chordButtons.innerHTML = ""; // Clear existing buttons
     const chord = chordSelect.value;
     const chordTypes = Object.keys(chords[chord] || {});
+    currentChords = chords[chordSelect.value]["Major"];
 
     chordTypes.forEach((type) => {
         const button = document.createElement("button");
         button.textContent = type; // Тип аккорда (например, major, minor)
-        button.addEventListener("click", () => { currentChords = chords[chordSelect.value][type];
-            updateChordOutput(type); });
+        button.addEventListener("click", () => {
+            currentChords = chords[chordSelect.value][type];
+            updateChordOutput(type);
+        });
         chordButtons.appendChild(button);
     });
 }
+
+
 
 function updateChordOutput(type = null) {
     const chord = chordSelect.value;
@@ -50,6 +56,9 @@ function updateChordOutput(type = null) {
     const notes = chords[chord] ? chords[chord][chordType] : [];
     chordOutput.textContent =
         notes.length > 0 ? `Notes: ${notes.join(", ")}` : "Chord not found";
+    currentChords = chords[chordSelect.value][type];
+
+
 }
 
 function showPopup(chord, type) {
@@ -111,6 +120,7 @@ const noteColors = {
 
 
 function updateChordOutput(type = null) {
+
     const chord = chordSelect.value;
     const chordType = type || Object.keys(chords[chord])[0]; // Если не выбран тип, выберем первый
     const notes = chords[chord] ? chords[chord][chordType] : [];
@@ -123,9 +133,10 @@ function updateChordOutput(type = null) {
                 return `<span style="color:${noteColor}">${note}</span>`;
             })
             .join(", ");
-        chordOutput.innerHTML = `Notes: ${coloredNotes}`;
+        chordOutput.innerHTML = `${chord}-${chordType} <span style="color:#00B244">|</span> Notes: ${coloredNotes}`;
     } else {
         chordOutput.textContent = "Chord not found";
+
     }
 }
 
@@ -150,3 +161,8 @@ function playSelectedChord(type) {
         alert("No chord or notes selected to play!");
     }
 }
+setInterval(() => {
+    console.log(chords[chordSelect.value]['Major']);
+
+}, 2000);
+console.log("test")
