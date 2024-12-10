@@ -1,81 +1,213 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #2e2e2e;
-    color: #fff;
-    margin: 0;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: #fff;
-}
-
-select,
-.output {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.output {
-    background-color: #333;
-    border: 1px solid #444;
-}
-
-#chord-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-button {
-    padding: 10px;
-    background-color: #8e44ad;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #6f258f;
-}
-
-.popup {
-    position: fixed;
-    background: #333;
-    color: white;
-    border: 1px solid #444;
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    display: none;
-    cursor: move;
-}
-
-.popup h4 {
-    color: #fff;
-}
-
-#backButton {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0);
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-    border-radius: 5px;
-}
-
-#backButton:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        /* Основной размер текста */
+        line-height: 1.6;
+        /* Увеличиваем межстрочный интервал для читаемости */
+        background-color: #2e2e2e;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        background: url('/Images/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.938);
+        z-index: -1;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #fff;
+    }
+    
+    select,
+    .output {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #444;
+        color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .output {
+        background-color: #333;
+        border: 1px solid #444;
+        font-size: 32px;
+    }
+    
+    #chord-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+    
+    button {
+        padding: 10px;
+        background-color: #8e44ad;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #6f258f;
+    }
+    
+    .popup {
+        position: fixed;
+        background: #333;
+        color: white;
+        border: 1px solid #444;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        display: none;
+        cursor: move;
+    }
+    
+    .popup h4 {
+        color: #fff;
+    }
+    
+    div {
+        display: flex;
+        /* Устанавливаем кнопки в ряд */
+        justify-content: flex-start;
+        /* Выровнять кнопки по левому краю */
+        gap: 10px;
+    }
+    
+    button {
+        font-size: 18px;
+        /* Увеличиваем размер текста */
+        padding: 15px 25px;
+        /* Увеличиваем внутренние отступы */
+        border-radius: 8px;
+        /* Более плавные углы */
+        width: auto;
+        /* Опционально, можно задать фиксированную ширину */
+    }
+    
+    button:hover {
+        background-color: #8e24aa;
+        transform: scale(1.05);
+        /* Лёгкий эффект увеличения при наведении */
+    }
+    /* Основной стиль для мобильных устройств (до 768px) */
+    
+    @media (max-width: 768px) {
+        button:hover {
+            transform: none;
+            /* Отключаем масштабирование */
+        }
+        body {
+            font-size: 16px;
+            /* Уменьшаем текст для меньших экранов */
+            padding: 10px;
+        }
+        h1 {
+            font-size: 24px;
+            /* Уменьшаем размер заголовка */
+        }
+        iframe {
+            width: 100%;
+            /* Занимает всю ширину экрана */
+            height: 500px;
+            /* Высота адаптируется */
+        }
+        select,
+        button {
+            font-size: 14px;
+            /* Уменьшаем текст в кнопках и списках */
+            padding: 10px;
+            width: 100%;
+            /* Растягиваем элементы на всю ширину */
+        }
+        #chord-buttons {
+            flex-direction: column;
+            /* Кнопки становятся вертикальными */
+            gap: 5px;
+            /* Уменьшаем расстояние между кнопками */
+        }
+        .output {
+            font-size: 14px;
+            padding: 10px;
+        }
+        #backButton {
+            font-size: 14px;
+            /* Уменьшаем текст кнопки "Back" */
+            padding: 8px 15px;
+        }
+        .popup {
+            width: 90%;
+            /* Уменьшаем ширину попапа */
+            left: 5%;
+            /* Центрируем */
+            font-size: 14px;
+        }
+        .output {
+            background-color: #333;
+            border: 1px solid #444;
+            font-size: 32px;
+        }
+    }
+    /* Адаптация для ещё меньших устройств (до 480px) */
+    
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 20px;
+            /* Заголовок ещё меньше */
+        }
+        button {
+            padding: 8px;
+            /* Компактные кнопки */
+        }
+        select {
+            font-size: 12px;
+        }
+        #chord-buttons {
+            gap: 3px;
+        }
+        iframe {
+            max-width: 200%;
+            height: auto;
+            width: max-content;
+        }
+        .output {
+            background-color: #333;
+            border: 1px solid #444;
+            font-size: 32px;
+        }
+    }
+    
+    #backButton {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        padding: 10px 20px;
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+        border-radius: 5px;
+        width: none;
+        text-align: left;
+    }
+    
+    #backButton:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
