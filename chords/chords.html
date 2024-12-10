@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chord Reader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="backButton" href="javascript:void(0);" onclick="window.location.href='/index.html'">Back</button>
+
+    <h1>Chord Reader</h1>
+    <guitar>
+        <iframe src="./guitar.html" height="400" width="700" title="Guitar Grif"></iframe>
+    </guitar>
+    <div>
+        <label for="chord-select">Choose a chord:</label>
+        <select id="chord-select"></select>
+    </div>
+
+    <div id="chord-buttons"></div>
+    <!-- Кнопки для типов аккордов -->
+    <div id="chord-output" class="output">Select a chord to see its notes</div>
+
+    <!-- Popup для отображения нот -->
+    <div id="popup" class="popup">
+        <h4>Chord Notes</h4>
+        <div id="popup-notes"></div>
+    </div>
+    <button id="play-chord-button" onclick="playSelectedChord(1)">Play Notes</button>
+    <button id="play-chord-button" onclick="playSelectedChord(2)">Play Chord</button>
+
+
+</body>
+<myscripts>
+
+    <script src="./script.js"></script>
+    <script src="./js/js-notesplayer.js"></script>
+</myscripts>
+
+</html>

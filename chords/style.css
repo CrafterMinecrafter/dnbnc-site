@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2e2e2e;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+select,
+.output {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.output {
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+#chord-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6f258f;
+}
+
+.popup {
+    position: fixed;
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    cursor: move;
+}
+
+.popup h4 {
+    color: #fff;
+}
+
+#backButton {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+#backButton:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}

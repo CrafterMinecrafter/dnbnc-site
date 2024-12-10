@@ -47,12 +47,25 @@
             text-align: left;
         }
         
+        button {
+            padding: 10px;
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #6f258f;
+        }
+        
         #backButton {
             position: fixed;
             top: 10px;
             left: 10px;
             padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0);
             color: white;
             font-size: 16px;
             border: none;
@@ -62,13 +75,13 @@
         }
         
         #backButton:hover {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 
 <body>
-    <button id="backButton" href="javascript:void(0);" onclick="window.location.href='./index.html'">Back</button>
+    <button id="backButton" href="javascript:void(0);" onclick="window.location.href='/index.html'">Back</button>
     <player>
         <div id="aplayer"></div>
 

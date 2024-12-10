@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гриф гитары</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2d2d2d;
+            color: #fff;
+        }
+
+        td {
+            background-color: #212121;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        td:hover {
+            background-color: #3b3b3b;
+            cursor: pointer;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            background-color: #616161;
+            color: #fff;
+        }
+
+        select {
+            font-size: 14px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            font-size: 14px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Гриф гитары</h1>
+
+    <label for="fretCount">Выберите количество ладов: </label>
+    <input type="number" id="fretCount" min="1" max="24" value="14" onchange="updateFretboard()">
+
+    <div id="guitarFretboardContainer"></div> <!-- Здесь будет гриф -->
+
+    <script>
+        const chromaticScale = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+        const noteColors = {
+            C: "#FF4D4D", 
+            "C#": "#FF6600", 
+            D: "#FF8000", 
+            "D#": "#FF9900", 
+            E: "#FFFF00", 
+            F: "#99FF00", 
+            "F#": "#66FF33", 
+            G: "#33FF66", 
+            "G#": "#00FF99", 
+            A: "#00FFFF", 
+            "A#": "#0099FF", 
+            B: "#0000FF", 
+        };
+
+        const tunings = {
+            "E": "E",
+            "F": "F",
+            "F#": "F#",
+            "G": "G",
+            "G#": "G#",
+            "A": "A",
+            "A#": "A#",
+            "B": "B",
+            "C": "C",
+            "C#": "C#",
+            "D": "D",
+            "D#": "D#"
+        };
+
+        let currentTuning = ["E", "A", "D", "G", "B", "E"];
+        let fretCount = 14; // По умолчанию 12 ладов
+
+        // Сохранение настроек в куки
+        function saveTuningToCookies() {
+            document.cookie = "guitarTuning=" + JSON.stringify(currentTuning) + ";path=/";
+        }
+
+        // Загрузка настроек из куки
+        function loadTuningFromCookies() {
+            const cookie = document.cookie.split('; ').find(row => row.startsWith('guitarTuning='));
+            if (cookie) {
+                currentTuning = JSON.parse(cookie.split('=')[1]);
+            }
+        }
+
+        // Функция для создания грифа
+        function createGuitarFretboard() {
+            loadTuningFromCookies(); // Загружаем настройки при создании грифа
+
+            const table = document.createElement('table');
+
+            // Заголовок таблицы
+            const headerRow = document.createElement('tr');
+            const th = document.createElement('th');
+            th.textContent = 'Струна';
+            headerRow.appendChild(th);
+
+            for (let fret = 1; fret <= fretCount; fret++) {
+                const th = document.createElement('th');
+                th.textContent = fret;
+                headerRow.appendChild(th);
+            }
+            table.appendChild(headerRow);
+
+            // Струны с выпадающим списком
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+                
+                // Создаем выпадающий список для изменения ноты струны
+                const td = document.createElement('td');
+                const select = document.createElement('select');
+                select.addEventListener('change', updateStringNote);
+                select.setAttribute('data-string-index', i);
+                
+                Object.keys(tunings).forEach(note => {
+                    const option = document.createElement('option');
+                    option.value = note;
+                    option.textContent = note;
+                    if (currentTuning[i] === note) option.selected = true;
+                    select.appendChild(option);
+                });
+
+                td.appendChild(select);
+                row.appendChild(td);
+
+                // Лады для каждой струны
+                for (let fret = 1; fret <= fretCount; fret++) {
+                    const td = document.createElement('td');
+                    td.classList.add('fret');
+                    td.innerHTML = getNoteForFret(currentTuning[i], fret);
+                    row.appendChild(td);
+                }
+
+                table.appendChild(row);
+            }
+
+            const container = document.getElementById('guitarFretboardContainer');
+            container.innerHTML = ''; // Очистить контейнер перед добавлением нового грифа
+            container.appendChild(table);
+        }
+
+        // Функция для обновления начальной ноты струны
+        function updateStringNote(event) {
+            const stringIndex = event.target.getAttribute('data-string-index');
+            currentTuning[stringIndex] = event.target.value;
+            updateGuitarTuning();
+            saveTuningToCookies(); // Сохраняем настройки в куки
+        }
+
+        // Функция для обновления грифа
+        function updateGuitarTuning() {
+            const rows = document.querySelectorAll('table tr');
+
+            // Обновляем ноты на струнах
+            for (let i = 0; i < 6; i++) {
+                const row = rows[i + 1]; 
+                const cells = row.getElementsByTagName('td');
+
+                for (let fret = 1; fret <= fretCount; fret++) {
+                    cells[fret].innerHTML = getNoteForFret(currentTuning[i], fret);
+                }
+            }
+        }
+
+        // Функция для получения ноты на ладу с цветом
+        function getNoteForFret(openNote, fret) {
+            const noteIndex = (chromaticScale.indexOf(openNote) + fret) % 12;
+            const note = chromaticScale[noteIndex];
+            const noteColor = noteColors[note] || "#000000"; 
+            return `<span style="color:${noteColor}"><b>${note}</b></span>`; 
+        }
+
+        // Функция для обновления количества ладов
+        function updateFretboard() {
+            fretCount = document.getElementById("fretCount").value;
+            createGuitarFretboard(); // Перерисовываем гриф с новым количеством ладов
+        }
+
+        // Инициализация грифа
+        createGuitarFretboard();
+    </script>
+
+</body>
+</html>
